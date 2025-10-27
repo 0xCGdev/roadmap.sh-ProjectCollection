@@ -54,4 +54,4 @@ This project builds a foundation for the next stage — styling the CV using CSS
 
 ---
 
-🧭 **Source:** [https://roadmap.sh/projects/single-page-cv](https://roadmap.sh/projects/single-page-cv)
+Project URL: https://roadmap.sh/projects/single-page-cv
