@@ -1,7 +1,7 @@
 # 🧾 Single Page CV
 
 This project is part of the [roadmap.sh](https://roadmap.sh) learning path.  
-Project link: [https://roadmap.sh/projects/single-page-cv](https://roadmap.sh/projects/single-page-cv)
+Project link: https://roadmap.sh/projects/single-page-cv
 
 ---
 
@@ -51,7 +51,3 @@ By completing this project, you’ll gain a solid understanding of:
 - Preparing your webpage for **future CSS styling**.
 
 This project builds a foundation for the next stage — styling the CV using CSS.
-
----
-
-Project URL: https://roadmap.sh/projects/single-page-cv
