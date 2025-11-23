@@ -1,0 +1,882 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+:root {
+    --color-bg: #F7F7F7;
+    --color-surface: #FFFFFF;
+    --text-primary: #111111;
+    --text-secondary: #8A8A8A;
+    --color-primary: #000000;
+    --color-secondary: #222222;
+    --border-color: #E6E6E6;
+}
+
+body {
+    background: var(--color-bg);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: var(--color-secondary);
+    color: var(--color-surface);
+    z-index: 1000;
+    padding: 3px 10px 6px 10px;
+}
+
+.logo {
+    flex: 2;
+    text-align: center;
+    color: var(--color-surface);
+    font-size: clamp(7px, 2.3vw, 14px);
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.logo a {
+    display: inline-block;
+    color: var(--color-surface);
+    font-weight: bold;
+}
+
+.logo a:hover {
+    transform: scale(1.02);
+}
+
+.header-space {
+    flex: 1;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+.hamburger {
+    display: block;
+    flex: 1;
+    font-size: clamp(24px, 7vw, 44px);
+    cursor: pointer;
+}
+
+.close-btn {
+    font-size: clamp(2rem, 10vw, 4.5rem);
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 4vw;
+    color: var(--color-primary);
+}
+
+nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 40vw;
+    background-color: var(--color-surface);
+    z-index: 2000;
+    padding-top: 1rem;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    list-style-type: none;
+    min-height: 100vh;
+    width: 50vw;
+    gap: 8vw;
+}
+
+nav a {
+    display: inline-block;
+    color: var(--color-secondary);
+    font-size: clamp(16px, 5vw, 32px);
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--color-primary);
+    transform: scale(1.1);
+}
+
+#menu-toggle:checked ~ nav {
+    display: flex;
+}
+
+#home {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10vw;
+}
+
+.hero {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.profile-picture {
+    width: 60vw;
+    border-radius: 50%;
+    margin: 12vh auto 5vh auto;
+    transition: 0.3s ease;
+}
+
+.profile-picture:hover {
+    transform: scale(1.05);
+
+}
+
+.name {
+    font-size: clamp(20px, 6.2vw, 55px);
+    line-height: 1.1;
+    color: var(--color-secondary);
+    width: 95%;
+    margin: auto;
+}
+
+.name-hero,
+.role-hero {
+    color: var(--color-primary);
+}
+
+.role {
+    font-size: clamp(23px, 7.2vw, 64px);
+    color: var(--color-secondary);
+    width: 95%;
+    margin: 0 auto;
+}
+
+.desc {
+    font-size: clamp(14px, 4.2vw, 28px);
+    color: var(--text-primary);
+    width: 95%;
+    margin: 0.5rem auto 1.8rem auto;
+}
+
+#projects {
+    width: 85%;
+    margin: auto;
+    margin-bottom: 3rem;
+    padding: 10px 5px 20px 5px;
+    scroll-margin: 15vw;
+    background-color: var(--color-surface);
+    box-shadow: 0 0 15px rgba(0,0,0, 0.2);
+    border-radius: 15px;
+}
+
+#projects h2,
+#articles h2,
+.contact-info h2,
+.reviews-section h2 {
+    padding: 10px;
+    text-align: center;
+    color: var(--color-primary);
+    font-size: clamp(22px, 6.2vw, 34px);
+}
+
+.projects-tabs {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+}
+
+.projects-tabs input {
+    display: none;
+}
+
+.projects-tabs label {
+    padding: 10px;
+    background: var(--text-secondary);
+    cursor: pointer;
+    border: 1px solid #ccc;
+    color: white;
+    font-size: clamp(14px, 4.2vw, 28px);
+    transition: background-color .3s ease;
+    text-align: center;
+}
+
+.projects-tabs label:hover {
+    background-color: var(--color-secondary);
+}
+
+.tab-content {
+    display: none;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: var(--color-surface);
+    font-size: clamp(14px, 4.2vw, 28px);
+}
+
+.content-btn {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px auto 10px auto;
+}
+
+.content-btn a {
+    font-size: clamp(14px, 3.7vw, 28px);
+    color: var(--color-surface);
+    background: var(--color-primary);
+    padding: 5px 15px;
+    border-radius: 10px;
+    transition: .3s ease;
+}
+
+.content-btn a:hover {
+    background: var(--color-secondary);
+    transform: scale(1.05);
+}
+
+#tab1:checked + label,
+#tab2:checked + label,
+#tab3:checked + label,
+#tab4:checked + label,
+#tab5:checked + label {
+    background: var(--color-secondary);
+}
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3,
+#tab4:checked ~ #content4,
+#tab5:checked ~ #content5 {
+    display: block;
+}
+
+#articles {
+    scroll-margin: 15vw;
+}
+
+article {
+    margin-bottom: 20px;
+    font-size: clamp(14px, 4.2vw, 28px);
+}
+
+article ul {
+    list-style: none;
+}
+
+.work-experience,
+.education {
+    width: 85%;
+    margin: 2rem auto 20px auto;
+    border-radius: 15px;
+    padding: 10px 0;
+    background: var(--color-surface);
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0,0,0, 0.2);
+}
+
+.work-experience h3,
+.work-experience p,
+.education h3,
+.education ul {
+    width: 85%;
+    margin: 5px auto;
+    text-align: left;
+}
+
+.work-experience a {
+    display: inline-block;
+    margin: 10px auto 1rem auto;
+    background: var(--color-secondary);
+    color: var(--color-surface);
+    padding: 5px 15px;
+    border-radius: 10px;
+    font-size: clamp(14px, 3.5vw, 28px);
+    transition: .3s ease;
+}
+
+.work-experience a:hover {
+    background: var(--color-primary);
+    transform: scale(1.05);
+}
+
+.spaced-list li{
+    margin-bottom: 20px;
+}
+
+.li-detail {
+    display: block;
+    margin-top: 5px;
+}
+
+.reviews-section {
+    width: 85%;
+    margin: auto;
+}
+
+.reviews-section h2 {
+    text-align: center;
+    margin: 2rem 0 10px 0;
+}
+
+.reviews1,
+.reviews2,
+.reviews3 {
+    background: var(--color-surface);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 0 15px rgba(0,0,0, 0.2);
+}
+
+#contact {
+    display: flex;
+    flex-direction: column;
+    scroll-margin: 14vw;
+}
+
+.contact-info {
+    display: contents;
+}
+
+.contact-info { order: 1; }
+.email-link { order: 2; }
+form { order: 3; }
+.social-link { order: 4; }
+
+.contact-info p {
+    width: 80%;
+    margin: 1vh auto 0 auto;
+    
+}
+
+.contact-info p:first-of-type {
+    font-size: clamp(16px, 4.8vw, 24px);
+    margin-bottom: 1vh;
+}
+
+.contact-info p:last-of-type {
+    font-size: clamp(14px, 4.2vw, 22px);
+    margin-bottom: 2vh;
+}
+
+.email-link {
+        color: var(--color-primary);
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 4vh;
+        font-size: clamp(16px, 4.8vw, 32px);
+        transition: 0.3s ease;
+        color: var(--color-secondary);
+    }
+
+    .email-link::before {
+        content: "🖂";
+        margin-right: 3vw;
+        position: relative;
+        top: 1.5px;
+    }
+
+    .email-link:hover {
+        transform: scale(1.02);
+        color: var(--color-primary);
+    }
+
+fieldset {
+    width: 85%;
+    margin: auto;
+    padding: 25px;
+    background: var(--color-surface);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0, 0.2);
+    border: none;
+}
+
+fieldset label {
+    font-weight: 500;
+    font-size: clamp(16px, 4.5vw, 28px);
+}
+
+fieldset input,
+fieldset textarea,
+fieldset button {
+    font-size: clamp(14px, 4vw, 28px);
+}
+
+fieldset input,
+fieldset textarea {
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid var(--text-secondary);
+    border-radius: 4px;
+    margin-top: 5px;
+    margin-bottom: 1rem;
+    transition: 0.3s ease;
+}
+
+.note-error {
+    display: none;
+}
+
+fieldset input:not(:placeholder-shown):invalid + .note-error,
+fieldset textarea:not(:placeholder-shown):invalid + .note-error {
+    display: block;
+    font-size: clamp(12px, 3.2vw, 16px);
+    color: crimson;
+    position: relative;
+    bottom: 14px;
+}
+
+fieldset input:focus,
+textarea:focus {
+    box-shadow: 0px 0px 5px black;
+    border-color: var(--color-primary);
+    outline: none;
+}
+
+fieldset button {
+    display: block;
+    margin: 0 auto;
+    background: var(--color-secondary);
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: var(--color-surface);
+    transition: .3s ease;
+}
+
+fieldset button:hover {
+    background: var(--color-primary);
+    transform: scale(1.05);
+}
+
+fieldset input:not(:placeholder-shown):invalid,
+fieldset textarea:not(:placeholder-shown):invalid {
+    border-color: crimson;
+}
+
+fieldset input:not(:placeholder-shown):valid,
+fieldset textarea:not(:placeholder-shown):valid {
+    border-color: green;
+}
+
+.social-link ul{
+    display: flex;
+    justify-content: center;
+    gap: 3vw;
+    margin: 2rem;
+    margin-bottom: 1rem;
+    list-style: none;
+}
+
+.social-link a {
+    display: inline-block;
+    font-size: clamp(14px, 4vw, 24px);
+    color: var(--color-secondary);
+    transition: 0.3s ease;
+}
+
+.social-link a:hover {
+    color: var(--color-primary);
+    transform: scale(1.1);
+}
+
+#footer {
+    display: flex;
+    justify-content: center;
+    padding: 0.8rem;
+    background: var(--color-secondary);
+}
+
+#footer p {
+    text-align: center;
+    color: var(--color-surface);
+    font-size: clamp(12px, 3.5vw, 24px);
+}
+
+footer hr {
+    display: none;
+}
+
+@media (min-width: 600px)  {
+
+    #home {
+        margin: 4rem 0 5rem 0;
+    }
+
+    .profile-picture {
+        width: 45vw;
+    }
+
+    .name { font-size: 6.2vw; }
+    .role { font-size: 7.2vw; }
+    .desc { font-size: 3.1vw; }
+
+    nav a { font-size: 4vw; }
+
+    #projects {
+        padding-bottom: 2rem;
+    }
+
+    #projects,
+    #articles {
+        margin-bottom: 4rem;
+    }
+
+    .reviews-section {
+        margin-top: 4rem;
+    }
+
+    #projects h2,
+    #articles h2,
+    .reviews-section h2,
+    .contact-info h2 { 
+        font-size: 5vw; 
+        margin-bottom: 1rem;
+    }
+
+    .projects-tabs label,
+    .tab-content,
+    .content-btn a,
+    .work-experience a { 
+        font-size: 2.8vw; 
+    }
+    
+    .tab-content {
+        padding-left: 1.2rem;
+    }
+
+    article { font-size: 2.8vw; }
+    
+    .work-experience a {
+        margin: 10px 0;
+    }
+
+    #contact {
+        scroll-margin: 6vw;
+    }
+
+    .contact-info h2 { margin-top: 3rem;}
+
+    .contact-info p:first-of-type{
+        font-size: 3vw;
+    }
+
+    .contact-info p:last-of-type { font-size: 2.8vw; }
+
+    fieldset { padding: 3rem; }
+
+    fieldset label,
+    fieldset input,
+    fieldset textarea,
+    fieldset button { font-size: 2.8vw; }
+
+    fieldset input:not(:placeholder-shown):invalid + .note-error,
+    fieldset textarea:not(:placeholder-shown):invalid + .note-error {
+        font-size: 2vw;
+    }
+
+    .email-link { font-size: 3vw;}
+
+    .social-link { gap: 8vw; }
+
+    .social-link a { font-size: 3vw; }
+    #footer p { font-size: 2.5vw; }
+
+    .content-btn {
+        margin: 20px 0 10px 0;
+    }
+
+    .reviews p {
+        display: block;
+        margin: 5px auto;
+        width: 95%;
+    }
+        
+    }
+
+@media (min-width: 1200px) {
+
+    header {
+        margin: 0;
+        padding: 0.8rem 0 1rem 0;
+    }
+
+    .logo {
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        font-size: 0.7vw;
+        margin-left: 2rem;
+    }
+
+    .header-space {
+        display: none;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    nav {
+        display: flex !important;
+        position: static;
+        width: auto;
+        height: auto;
+        padding: 0;
+        background: transparent;
+        align-items: center;
+        margin-right: 2rem;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        width: auto;
+        min-height: auto;
+        gap: 4rem;
+        margin: 0;
+        padding: 0;
+        text-align: right;
+    }
+
+    nav a {
+        color: var(--color-surface);
+    }
+
+    nav a:hover {
+        color: var(--color-bg);
+    }
+
+    .close-btn {
+        display: none;
+    }
+
+    #home {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        gap: 12vw;
+        margin-top: 2rem;
+        margin-bottom: 0;
+    }
+
+    .profile-picture {
+        width: 25vw;
+        margin: 0;
+    }
+
+    .hero {
+        width: 40%;
+        margin: 0;
+    }
+
+    .name { 
+        font-size: 2.8vw; 
+        margin: 0;
+    }
+
+    .role { 
+        font-size: 3.2vw; 
+        margin: 0;
+    }
+
+    .desc {
+        font-size: 1.4vw; 
+        padding-top: 0.8rem;
+        margin: 0;
+        width: 85%;
+    }
+
+    nav a { font-size: 1.2vw; }
+
+    #projects,
+    #articles {
+        scroll-margin: 6vw;
+    }
+
+    #projects h2,
+    #articles h2,
+    .reviews-section h2,  
+    .contact-info h2 {
+        font-size: 1.6vw; 
+    }
+
+    .projects-tabs label,
+    .tab-content { 
+        font-size: 1vw; 
+    }
+    
+    .content-btn a { font-size: 1vw; }
+
+    article { font-size: 1vw; }
+    .work-experience a { font-size: 1vw; }
+
+    .education {
+        padding-bottom: 1vw;
+    }
+
+    fieldset label {
+        font-size: 1.2vw;
+    }
+
+    fieldset input,
+    fieldset textarea,
+    fieldset button { 
+        font-size: 1vw; 
+    }
+
+    .social-link a,
+    #footer p { 
+        font-size: 1vw; 
+    }
+
+    .desktop-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: stretch;
+        width: 95%;
+        gap: 2rem;
+        margin: 0 auto;
+    }
+
+    #projects  {
+        width: 30%;
+        margin: 0;
+        padding: 1rem;
+    }
+
+    #articles {
+        display: flex;
+        align-items: stretch;
+        margin: 0;
+        padding: 0;
+        width: 70%;
+        gap: 2rem;
+    }
+
+    .work-experience,
+    .education {
+        margin: 0;
+    }
+
+    .reviews-section {
+        display: flex;
+        flex-direction: column;
+        margin: 2rem auto 0 auto;
+    }
+
+    .reviews-section h2 {
+        font-size: 1.8vw;
+        margin-bottom: 2rem;
+    }
+
+    .reviews{
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+
+    .reviews1,
+    .reviews2,
+    .reviews3 {
+        width: 33.33%;
+    }
+
+    #contact {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 85%;
+        margin: 3.5rem auto 5rem auto;
+    }
+
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        width: 50%;
+    }
+
+    .contact-info p,
+    .contact-info h2,
+    .email-link,
+    .social-link {
+    text-align: left;
+    width: 60%;
+}
+
+    #contact h2{
+        font-size: 2vw;
+        text-align: start;
+        margin: 0;
+        margin-bottom: 2rem;
+        padding: 0;
+    }
+
+    .contact-info p:first-of-type {
+        font-weight: 500;
+        margin-bottom: 1rem;
+        font-size: 1.2vw;
+    }
+
+    .contact-info p:last-of-type {
+        font-size: 1vw;
+    }
+
+    .email-link {
+        margin: 10vw 0 1vw 0;
+        color: var(--color-primary);
+        font-size: 1.1vw;
+    }
+
+    .email-link::before {
+        content: "🖂";
+        margin-right: 1.2vw;
+    }
+
+    .social-link ul{
+        margin: 0;
+        padding: 0;
+        justify-content: flex-start;
+        gap: 1vw;
+    }
+
+    .social-link ul::before {
+        content: "🔗";
+        position: relative;
+        right: 3px;
+        font-size: 1.1vw;
+    }
+
+    .social-link a:hover {
+        transform: scale(1.05);
+    }
+
+    form {
+        width: 50%;
+    }
+
+    fieldset {
+        margin: 0;
+        width: 100%;
+        padding: 1.8rem 2.5rem;
+    }
+
+    fieldset input:not(:placeholder-shown):invalid + .note-error,
+    fieldset textarea:not(:placeholder-shown):invalid + .note-error {
+        font-size: 0.8vw;
+    }
+
+}

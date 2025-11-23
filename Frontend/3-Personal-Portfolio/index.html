@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chandra Gumilang | Frontend Developer</title>
+    <!-- SEO -->
+    <meta name="description" content="Portfolio of Chandra Gumilang, a frontend developer showcasing projects, articles, and contact information." />
+    <meta name="keywords" content="Frontend Developer, Chandra Gumilang, Portfolio, HTML, Web Development" />
+    <meta name="author" content="Chandra Gumilang" />
+    <!-- Open Graph-->
+    <meta property="og:title" content="Chandra Gumilang | Frontend Developer" />
+    <meta property="og:description" content="Explore the portfolio and projects of Chandra Gumilang, a frontend developer passionate about clean and accessible design." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://example.com" />
+    <meta property="og:image" content="https://example.com/og-image.jpg" />
+    <!-- External CSS -->
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <!-- Toggle -->
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="hamburger">☰</label>
+        <!-- logo -->
+        <div class="logo">
+            <h1>
+                <a href="#home">&lt;/CG&gt;</a>
+                <strong>Chandra Gumilang</strong>
+            </h1>
+        </div>
+        <div class="header-space"></div>
+        <!-- Navbar -->
+        <nav class="navbar">
+            <!-- Close Button-->
+            <label for="menu-toggle" class="close-btn">&times;</label>
+            <ul>
+                <li><a href="#home">Home</a></li>  
+                <li><a href="#projects">Projects</a></li>  
+                <li><a href="#articles">Articles</a></li>     
+                <li><a href="#contact">Contact</a></li>     
+            </ul>
+        </nav>    
+    </header>
+    <!-- End of Header-->
+    
+    <!-- Main -->
+    <main>
+        <!-- Home -->
+        <section id="home">
+            <img 
+            src="asset/profile-picture-1200.webp"
+            srcset="
+                asset/profile-picture-200.webp 200w,
+                asset/profile-picture-600.webp 600w,
+                asset/profile-picture-1200.webp 1200w
+            "
+            sizes="(max-width: 768px) 100vw, 50vw"
+            width="300px"
+            alt="Chandra profile picture"
+            class="profile-picture">
+            <div class="hero">
+                <h2 class="name">Hi, It's <span class="name-hero">Chandra Gumilang</span></h2>
+                <h3 class="role">i'm <span class="role-hero">Frontend Developer</span></h3>
+                <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, at modi eaque ex nobis optio ducimus totam obcaecati eum atque aperiam dicta facere vel a blanditiis debitis consectetur fuga nesciunt.</p>
+            </div>
+        </section>
+        <!-- End of Home -->
+        
+        <div class="desktop-section">
+            <!--Projects-->
+            <section id="projects">
+                <h2>Projects</h2>
+                <div class="projects-tabs">
+                    <input type="radio" id="tab1" name="tab" checked>
+                    <label for="tab1" role="tab">Portfolio Builder</label>
+                    <div id="content1" class="tab-content" role="tabpanel">
+                        <h3>Portfolio Builder</h3>
+                        <p>A simple HTML-only portfolio template.</p>
+                        <div class="content-btn">
+                            <a href="example.com">Repository</a>
+                            <a href="example.com">Live Demo</a>
+                        </div>
+                    </div>
+
+                    <input type="radio" id="tab2" name="tab">
+                    <label for="tab2" role="tab">Weather App</label>
+                    <div id="content2" class="tab-content" role="tabpanel">
+                        <h3>Weather App</h3>
+                        <p>Displays real-time weather using public APIs.</p>
+                        <div class="content-btn">
+                            <a href="example.com">Repository</a>
+                            <a href="example.com">Live Demo</a>
+                        </div>
+                    </div>
+
+                    <input type="radio" id="tab3" name="tab">
+                    <label for="tab3" role="tab">Task Tracker</label>
+                    <div id="content3" class="tab-content" role="tabpanel">
+                        <h3>Task Tracker</h3>
+                        <p>Manage daily tasks with an interactive to-do list.</p>
+                        <div class="content-btn">
+                            <a href="example.com">Repository</a>
+                            <a href="example.com">Live Demo</a>
+                        </div>
+                    </div>
+
+                    <input type="radio" id="tab4" name="tab">
+                    <label for="tab4" role="tab">Countdown Timer</label>
+                    <div id="content4" class="tab-content" role="tabpanel">
+                        <h3>Countdown Timer</h3>
+                        <p>An event countdown built with HTML and JavaScript.</p>
+                        <div class="content-btn">
+                            <a href="example.com">Repository</a>
+                            <a href="example.com">Live Demo</a>
+                        </div>
+                    </div>
+
+                    <input type="radio" id="tab5" name="tab">
+                    <label for="tab5" role="tab">Blog Layout</label>
+                    <div id="content5" class="tab-content" role="tabpanel">
+                        <h3>Blog Layout</h3>
+                        <p>Semantic blog structure ready for CSS styling.</p>
+                        <div class="content-btn">
+                            <a href="example.com">Repository</a>
+                            <a href="example.com">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End of Projects-->
+
+            <!-- Articles-->
+            <section id="articles">
+                <!-- Work Experience -->
+                <div class="work-experience">
+                    <h2>Work Experience</h2>
+
+                    <article>
+                        <h3>Roadmap.sh Contributor</h3>
+                        <p>Solved and submitted all frontend development projects listed on roadmap.sh, demonstrating strong understanding of HTML structure and semantics.</p>
+                        <a href="https://roadmap.sh/u/cgdev" target="_blank" rel="noopener noreferrer">Visit My Profile</a>
+                    </article>
+
+                    <article>
+                        <h3>Open Source Volunteer</h3>
+                        <p>Contributed to multiple open-source repositories. Helped maintain HTML documentation and improve accessibility for community-driven web projects.</p>
+                        <a href="https://github.com/0xCGdev" target="_blank" rel="noopener noreferrer">View GitHub Profile</a>
+                    </article>
+
+                    <article>
+                        <h3>Freelance Web Assistant</h3>
+                        <p>Assisted small businesses in setting up basic static websites. Focused on clean structure, SEO optimization, and preparing them for CSS styling later.</p>
+                    </article>
+                </div>
+                <!-- End of Work Experince -->
+
+                <!-- Education -->
+                <div class="education">
+                    <h2>Education</h2>
+
+                    <article>
+                        <ul class="spaced-list">
+                            <li><strong>Bachelor of Software Engineering — Aurelia Institute of Technology (2019-2023)</strong>
+                            <span class="li-detail">Graduated with High Honors (GPA 3.92/4.00). Focused on front-end web development, design systems, and semantic HTML. Developed a final thesis project titled “Modern Web Interfaces for Education Portals.”</span>
+                            </li>
+                            <li><strong>Certificate in Web Design & Usability — Lunaris Digital Academy (2022)</strong>
+                            <span class="li-detail">Completed an intensive program emphasizing clean code structure, accessibility, and responsive design using pure HTML and CSS.</span>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article>
+                        <h3>Relevant Courses</h3>
+                        <ul>
+                            <li>Interactive Web Interfaces</li>
+                            <li>Human-Computer Interaction</li>
+                            <li>Data Structures and Web Algorithms</li>
+                            <li>Creative Coding for Designers</li>
+                            <li>Applied Web Accessibility</li>
+                            <li>Software Architecture Basics</li>
+                        </ul>
+                    </article>
+
+                    <article>
+                        <h3>Certifications</h3>
+                        <ul>
+                            <li><strong>Semantic HTML Mastery</strong> — Codeverse Labs</li>
+                            <li><strong>Responsive Design Fundamentals</strong> — Nova Learning Hub</li>
+                            <li><strong>Building Scalable Web Layouts</strong> — Altura Online School</li>
+                        </ul>
+                    </article>
+                </div>
+                <!-- End of Education-->
+            </section>
+        </div>    
+
+            <!-- Reviews -->
+            <div class="reviews-section">
+                <h2>Review from My Client</h2>
+                <div class="reviews">
+                    <article class="reviews1">
+                        <blockquote>
+                            <p>“Chandra delivered our company website ahead of schedule and exceeded expectations.”</p>
+                        </blockquote><br>
+                        <footer>
+                            <p><strong>Emily Varon</strong><br>Founder at BrightPath Consulting</p>
+                        </footer>
+                    </article>
+
+                    <article class="reviews2">
+                        <blockquote>
+                            <p>“I was impressed by the clarity of his HTML structure. It made our later design process seamless. Definitely someone who understands semantic markup well.”</p>
+                        </blockquote><br>
+                        <footer>
+                            <p><strong>Lucas Trent</strong><br>Project Manager at Skywave Media</p>
+                        </footer>
+                    </article>
+
+                    <article class="reviews3">
+                        <blockquote>
+                            <p>“Working with Chandra was effortless. He communicates clearly, understands project requirements quickly, and produces well-organized code.”</p>
+                        </blockquote><br>
+                        <footer>
+                            <p><strong>Mira Solen</strong></br>CEO of Aurora Digital Labs</p>
+                        </footer>
+                    </article>
+                </div>
+            </div>
+            <!-- End of Reviews -->
+        </section>
+        <!-- End of Articles -->
+
+        <!-- Contact -->
+        <section id="contact">
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <p>Let's start a conversation!</p>
+                <p>If you have a project in mind or just want to say hello, feel free to reach out.</p>
+                <a href="mailto:example@email.com" class="email-link">example@email.com</a>
+                <div class="social-link">    
+                    <ul>
+                        <li><a href="https://linkedin.com/in/chandragumilang/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                        <li><a href="https://github.com/0xCGdev" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                        <li><a href="https://x.com/0xCGdev" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
+                        <li><a href="https://instagram.com/_cg.dev/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <form action="/submit">
+                    <fieldset>
+                        <label for="name">Name:</label>
+                        <input type="text" name="name" id="name" placeholder="John Doe" pattern="^[A-Za-z\s]+$" required>
+                        <small class="note-error">* Only letters are allowed</small>
+
+                        <label for="email">Email:</label> 
+                        <input type="email" name="email" id="email" placeholder="johndoe@example.com" required>
+                        <small class="note-error">* Must be a valid email format</small>
+
+                        <label for="subject">Subject:</label>
+                        <input type="text" name="subject" id="subject" placeholder="Enter your subject..." minlength="5" required>
+                        <small class="note-error">* At least 5 characters required</small>
+
+                        <textarea name="message" id="message" cols="29" rows="5" placeholder="Your message..." minlength="5" required></textarea>
+                        <small class="note-error">* At least 5 characters required</small>
+                        
+                        <button type="submit">Send message</button>
+                    </fieldset>
+                </form>
+
+                
+        </section>
+    </main>
+    <!-- End of Main-->
+
+    <!-- Footer -->
+    <footer id="footer">
+        <hr>
+        <p>© 2025 Chandra Gumilang. All rights reserved.</p>
+    </footer>
+    <!-- End of Footer-->
+</body>
+</html>
