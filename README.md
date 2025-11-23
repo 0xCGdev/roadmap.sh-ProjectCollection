@@ -14,6 +14,7 @@ Feel free to explore, learn, and get inspired by the projects here! ✨
 |:---:|:------------:|:-----------:|:---------------:|:--------:|
 | 1 | **Single Page CV** | A simple one-page CV built using only HTML. Focuses on semantic structure, SEO, and OG tags. | [View Project](https://roadmap.sh/projects/single-page-cv) | [View Solution](https://github.com/0xCGdev/roadmap.sh-ProjectCollection/tree/main/Frontend/1.%20Single-Page%20CV) |
 | 2 | **Basic HTML Website** | A simple multi-page site created with only HTML. Includes navigation across pages, SEO meta tags, and a semantic structure ready for styling. | [View Project](https://roadmap.sh/projects/basic-html-website) | [View Solution](https://github.com/0xCGdev/roadmap.sh-ProjectCollection/tree/main/Frontend/2.%20Basic%20HTML%20Website) |
+| 3 | **Personal Portfolio** | A clean and responsive personal portfolio built with pure HTML and CSS. Features semantic structure, mobile-first layout, CSS-only interactions (tabs and navigation), and optimized SEO meta tags. Ideal as a foundation for showcasing projects, experience, and contact information. | [View Project](https://roadmap.sh/projects/portfolio-website) | [View Solution](https://github.com/0xCGdev/roadmap.sh-ProjectCollection/tree/main/Frontend/3-Personal-Portfolio) |
 
 
 ---
