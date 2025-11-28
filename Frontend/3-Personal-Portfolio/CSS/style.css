@@ -763,7 +763,17 @@ footer hr {
     
     .tab-content { padding-left: 1.2rem; }
 
-    article { font-size: 2.6vw; }
+    .projects-tabs {
+        margin-bottom: 1rem;
+    }
+
+    article { 
+        font-size: 2.6vw; 
+    }
+
+    article:last-child {
+        margin-bottom: 3rem;
+    }
     
     .work-experience a { margin: 10px 0; }
 
