@@ -117,7 +117,7 @@ nav {
     position: fixed;
     top: 0;
     left: 0;
-    height: 100vh;
+    height: 100dvh;
     width: 50%;
     background-color: var(--clr-sidebar);
     z-index: 2000;
@@ -256,7 +256,7 @@ nav a:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100vh;
+    height: 100dvh;
 }
 
 .hero {
@@ -566,7 +566,7 @@ form { order: 3; }
     color: var(--clr-text-secondary);
     width: 80%;
     margin: 0 auto;
-    margin-bottom: 4vh;
+    margin-bottom: 2rem;
     font-size: clamp(14px, 4vw, 22px);
     gap: 1rem;
 }
@@ -933,7 +933,7 @@ footer hr {
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        height: 10dvh;
         gap: 14vw;
         margin: 0;
     }
