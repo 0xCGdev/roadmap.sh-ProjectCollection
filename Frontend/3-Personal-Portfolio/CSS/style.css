@@ -525,6 +525,10 @@ article ul {
     margin-bottom: 1rem;
 }
 
+.reviews blockquote {
+    margin-bottom: 1.2rem;
+}
+
 #contact {
     display: flex;
     flex-direction: column;
@@ -771,7 +775,8 @@ footer hr {
         font-size: 2.6vw; 
     }
 
-    article:last-child {
+    .work-experience article:last-child,
+    .education article:last-child {
         margin-bottom: 3rem;
     }
     
@@ -1075,8 +1080,12 @@ footer hr {
     .reviews1,
     .reviews2,
     .reviews3 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         width: 33.33%;
     }
+
 
     #contact {
         display: flex;
