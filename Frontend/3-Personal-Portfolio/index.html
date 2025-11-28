@@ -16,270 +16,304 @@
     <meta property="og:image" content="https://example.com/og-image.jpg" />
     <!-- External CSS -->
     <link rel="stylesheet" href="CSS/style.css">
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <!-- Toggle -->
-        <input type="checkbox" id="menu-toggle">
-        <label for="menu-toggle" class="hamburger">☰</label>
-        <!-- logo -->
-        <div class="logo">
-            <h1>
-                <a href="#home">&lt;/CG&gt;</a>
-                <strong>Chandra Gumilang</strong>
-            </h1>
-        </div>
-        <div class="header-space"></div>
-        <!-- Navbar -->
-        <nav class="navbar">
-            <!-- Close Button-->
-            <label for="menu-toggle" class="close-btn">&times;</label>
-            <ul>
-                <li><a href="#home">Home</a></li>  
-                <li><a href="#projects">Projects</a></li>  
-                <li><a href="#articles">Articles</a></li>     
-                <li><a href="#contact">Contact</a></li>     
-            </ul>
-        </nav>    
-    </header>
-    <!-- End of Header-->
-    
-    <!-- Main -->
-    <main>
-        <!-- Home -->
-        <section id="home">
-            <img 
-            src="asset/profile-picture-1200.webp"
-            srcset="
-                asset/profile-picture-200.webp 200w,
-                asset/profile-picture-600.webp 600w,
-                asset/profile-picture-1200.webp 1200w
-            "
-            sizes="(max-width: 768px) 100vw, 50vw"
-            width="300px"
-            alt="Chandra profile picture"
-            class="profile-picture">
-            <div class="hero">
-                <h2 class="name">Hi, It's <span class="name-hero">Chandra Gumilang</span></h2>
-                <h3 class="role">i'm <span class="role-hero">Frontend Developer</span></h3>
-                <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, at modi eaque ex nobis optio ducimus totam obcaecati eum atque aperiam dicta facere vel a blanditiis debitis consectetur fuga nesciunt.</p>
+    <input type="checkbox" id="theme-switch">
+    <div class="wrapper">
+        <!-- Header -->
+        <header>
+            <!-- Toggle -->
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger">☰</label>
+            <!-- logo -->
+            <div class="logo">
+                <h1>
+                    <a href="#home">&lt;/CG&gt;</a>
+                    <strong>Chandra Gumilang</strong>
+                </h1>
             </div>
-        </section>
-        <!-- End of Home -->
-        
-        <div class="desktop-section">
-            <!--Projects-->
-            <section id="projects">
-                <h2>Projects</h2>
-                <div class="projects-tabs">
-                    <input type="radio" id="tab1" name="tab" checked>
-                    <label for="tab1" role="tab">Portfolio Builder</label>
-                    <div id="content1" class="tab-content" role="tabpanel">
-                        <h3>Portfolio Builder</h3>
-                        <p>A simple HTML-only portfolio template.</p>
-                        <div class="content-btn">
-                            <a href="example.com">Repository</a>
-                            <a href="example.com">Live Demo</a>
-                        </div>
-                    </div>
+            <div class="header-space"></div>
+            <!-- Navbar -->
+            <nav class="navbar">
+                <!-- Close Button-->
+                <label for="menu-toggle" class="close-btn">&times;</label>
+                <ul>
+                    <li><a href="#home">Home</a></li>  
+                    <li><a href="#projects">Projects</a></li>  
+                    <li><a href="#articles">Articles</a></li>     
+                    <li><a href="#contact">Contact</a></li>     
+                </ul>
 
-                    <input type="radio" id="tab2" name="tab">
-                    <label for="tab2" role="tab">Weather App</label>
-                    <div id="content2" class="tab-content" role="tabpanel">
-                        <h3>Weather App</h3>
-                        <p>Displays real-time weather using public APIs.</p>
-                        <div class="content-btn">
-                            <a href="example.com">Repository</a>
-                            <a href="example.com">Live Demo</a>
+                <div class="theme-toggle">
+                    <span class="toggle-text">Theme Switch</span>
+                    <label for="theme-switch" class="toggle-label">
+                        <div class="circle">
+                            <svg class="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
+                            </svg>
+                            <svg class="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z" clip-rule="evenodd" />
+                            </svg>
                         </div>
-                    </div>
+                </div>
+            </nav>    
+        </header>
+        <!-- End of Header-->
 
-                    <input type="radio" id="tab3" name="tab">
-                    <label for="tab3" role="tab">Task Tracker</label>
-                    <div id="content3" class="tab-content" role="tabpanel">
-                        <h3>Task Tracker</h3>
-                        <p>Manage daily tasks with an interactive to-do list.</p>
-                        <div class="content-btn">
-                            <a href="example.com">Repository</a>
-                            <a href="example.com">Live Demo</a>
-                        </div>
+        <!-- Main -->
+        <main>
+            <!-- Home -->
+            <section id="home">
+                <img 
+                src="asset/profile-picture-1200.webp"
+                srcset="
+                    asset/profile-picture-200.webp 200w,
+                    asset/profile-picture-600.webp 600w,
+                    asset/profile-picture-1200.webp 1200w
+                "
+                sizes="(max-width: 768px) 100vw, 50vw"
+                width="300px"
+                alt="Chandra profile picture"
+                class="profile-picture">
+                <div class="hero">
+                    <h2 class="name">Hi, It's <span class="name-hero">Chandra Gumilang</span></h2>
+                    <h3 class="role">i'm <span class="role-hero">Frontend Developer</span></h3>
+                    <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, at modi eaque ex nobis optio ducimus totam obcaecati eum atque aperiam dicta facere vel a blanditiis debitis consectetur fuga nesciunt.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#"><i class="fa-brands fa-github"></i></a>
+                        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
                     </div>
-
-                    <input type="radio" id="tab4" name="tab">
-                    <label for="tab4" role="tab">Countdown Timer</label>
-                    <div id="content4" class="tab-content" role="tabpanel">
-                        <h3>Countdown Timer</h3>
-                        <p>An event countdown built with HTML and JavaScript.</p>
-                        <div class="content-btn">
-                            <a href="example.com">Repository</a>
-                            <a href="example.com">Live Demo</a>
-                        </div>
-                    </div>
-
-                    <input type="radio" id="tab5" name="tab">
-                    <label for="tab5" role="tab">Blog Layout</label>
-                    <div id="content5" class="tab-content" role="tabpanel">
-                        <h3>Blog Layout</h3>
-                        <p>Semantic blog structure ready for CSS styling.</p>
-                        <div class="content-btn">
-                            <a href="example.com">Repository</a>
-                            <a href="example.com">Live Demo</a>
-                        </div>
-                    </div>
+                    <a href="https://0xcgdev.github.io/roadmap.sh-ProjectCollection/Frontend/1-Single-Page-CV/" target="_blank" rel="noopener noreferrer" class="download-cv-btn">Download CV</a>
                 </div>
             </section>
-            <!-- End of Projects-->
+            <!-- End of Home -->
 
-            <!-- Articles-->
-            <section id="articles">
-                <!-- Work Experience -->
-                <div class="work-experience">
-                    <h2>Work Experience</h2>
+            <div class="desktop-section">
+                <!--Projects-->
+                <section id="projects">
+                    <h2>Projects</h2>
+                    <div class="projects-tabs">
+                        <input type="radio" id="tab1" name="tab" checked>
+                        <label for="tab1" role="tab">Portfolio Builder</label>
+                        <div id="content1" class="tab-content" role="tabpanel">
+                            <h3>Portfolio Builder</h3>
+                            <p>A simple HTML-only portfolio template.</p>
+                            <div class="content-btn">
+                                <a href="example.com">Repository</a>
+                                <a href="example.com">Live Demo</a>
+                            </div>
+                        </div>
 
-                    <article>
-                        <h3>Roadmap.sh Contributor</h3>
-                        <p>Solved and submitted all frontend development projects listed on roadmap.sh, demonstrating strong understanding of HTML structure and semantics.</p>
-                        <a href="https://roadmap.sh/u/cgdev" target="_blank" rel="noopener noreferrer">Visit My Profile</a>
-                    </article>
+                        <input type="radio" id="tab2" name="tab">
+                        <label for="tab2" role="tab">Weather App</label>
+                        <div id="content2" class="tab-content" role="tabpanel">
+                            <h3>Weather App</h3>
+                            <p>Displays real-time weather using public APIs.</p>
+                            <div class="content-btn">
+                                <a href="example.com">Repository</a>
+                                <a href="example.com">Live Demo</a>
+                            </div>
+                        </div>
 
-                    <article>
-                        <h3>Open Source Volunteer</h3>
-                        <p>Contributed to multiple open-source repositories. Helped maintain HTML documentation and improve accessibility for community-driven web projects.</p>
-                        <a href="https://github.com/0xCGdev" target="_blank" rel="noopener noreferrer">View GitHub Profile</a>
-                    </article>
+                        <input type="radio" id="tab3" name="tab">
+                        <label for="tab3" role="tab">Task Tracker</label>
+                        <div id="content3" class="tab-content" role="tabpanel">
+                            <h3>Task Tracker</h3>
+                            <p>Manage daily tasks with an interactive to-do list.</p>
+                            <div class="content-btn">
+                                <a href="example.com">Repository</a>
+                                <a href="example.com">Live Demo</a>
+                            </div>
+                        </div>
 
-                    <article>
-                        <h3>Freelance Web Assistant</h3>
-                        <p>Assisted small businesses in setting up basic static websites. Focused on clean structure, SEO optimization, and preparing them for CSS styling later.</p>
-                    </article>
+                        <input type="radio" id="tab4" name="tab">
+                        <label for="tab4" role="tab">Countdown Timer</label>
+                        <div id="content4" class="tab-content" role="tabpanel">
+                            <h3>Countdown Timer</h3>
+                            <p>An event countdown built with HTML and JavaScript.</p>
+                            <div class="content-btn">
+                                <a href="example.com">Repository</a>
+                                <a href="example.com">Live Demo</a>
+                            </div>
+                        </div>
+
+                        <input type="radio" id="tab5" name="tab">
+                        <label for="tab5" role="tab">Blog Layout</label>
+                        <div id="content5" class="tab-content" role="tabpanel">
+                            <h3>Blog Layout</h3>
+                            <p>Semantic blog structure ready for CSS styling.</p>
+                            <div class="content-btn">
+                                <a href="example.com">Repository</a>
+                                <a href="example.com">Live Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- End of Projects-->
+
+                <!-- Articles-->
+                <section id="articles">
+                    <!-- Work Experience -->
+                    <div class="work-experience">
+                        <h2>Work Experience</h2>
+
+                        <article>
+                            <h3>Roadmap.sh Contributor</h3>
+                            <p>Solved and submitted all frontend development projects listed on roadmap.sh, demonstrating strong understanding of HTML structure and semantics.</p>
+                            <a href="https://roadmap.sh/u/cgdev" target="_blank" rel="noopener noreferrer">Visit My Profile</a>
+                        </article>
+
+                        <article>
+                            <h3>Open Source Volunteer</h3>
+                            <p>Contributed to multiple open-source repositories. Helped maintain HTML documentation and improve accessibility for community-driven web projects.</p>
+                            <a href="https://github.com/0xCGdev" target="_blank" rel="noopener noreferrer">View GitHub Profile</a>
+                        </article>
+
+                        <article>
+                            <h3>Freelance Web Assistant</h3>
+                            <p>Assisted small businesses in setting up basic static websites. Focused on clean structure, SEO optimization, and preparing them for CSS styling later.</p>
+                        </article>
+                    </div>
+                    <!-- End of Work Experince -->
+
+                    <!-- Education -->
+                    <div class="education">
+                        <h2>Education</h2>
+
+                        <article>
+                            <ul class="spaced-list">
+                                <li><strong>Bachelor of Software Engineering — Aurelia Institute of Technology (2019-2023)</strong>
+                                <span class="li-detail">Graduated with High Honors (GPA 3.92/4.00). Focused on front-end web development, design systems, and semantic HTML. Developed a final thesis project titled “Modern Web Interfaces for Education Portals.”</span>
+                                </li>
+                                <li><strong>Certificate in Web Design & Usability — Lunaris Digital Academy (2022)</strong>
+                                <span class="li-detail">Completed an intensive program emphasizing clean code structure, accessibility, and responsive design using pure HTML and CSS.</span>
+                                </li>
+                            </ul>
+                        </article>
+
+                        <article>
+                            <h3>Relevant Courses</h3>
+                            <ul>
+                                <li>Interactive Web Interfaces</li>
+                                <li>Human-Computer Interaction</li>
+                                <li>Data Structures and Web Algorithms</li>
+                                <li>Creative Coding for Designers</li>
+                                <li>Applied Web Accessibility</li>
+                                <li>Software Architecture Basics</li>
+                            </ul>
+                        </article>
+
+                        <article>
+                            <h3>Certifications</h3>
+                            <ul>
+                                <li><strong>Semantic HTML Mastery</strong> — Codeverse Labs</li>
+                                <li><strong>Responsive Design Fundamentals</strong> — Nova Learning Hub</li>
+                                <li><strong>Building Scalable Web Layouts</strong> — Altura Online School</li>
+                            </ul>
+                        </article>
+                    </div>
+                    <!-- End of Education-->
+                </section>
+            </div>    
+
+                <!-- Reviews -->
+                <div class="reviews-section">
+                    <h2>Review from My Client</h2>
+                    <div class="reviews">
+                        <article class="reviews1">
+                            <blockquote>
+                                <p>“Chandra delivered our company website ahead of schedule and exceeded expectations.”</p>
+                            </blockquote><br>
+                            <footer>
+                                <p><strong>Emily Varon</strong><br>Founder at BrightPath Consulting</p>
+                            </footer>
+                        </article>
+
+                        <article class="reviews2">
+                            <blockquote>
+                                <p>“I was impressed by the clarity of his HTML structure. It made our later design process seamless. Definitely someone who understands semantic markup well.”</p>
+                            </blockquote><br>
+                            <footer>
+                                <p><strong>Lucas Trent</strong><br>Project Manager at Skywave Media</p>
+                            </footer>
+                        </article>
+
+                        <article class="reviews3">
+                            <blockquote>
+                                <p>“Working with Chandra was effortless. He communicates clearly, understands project requirements quickly, and produces well-organized code.”</p>
+                            </blockquote><br>
+                            <footer>
+                                <p><strong>Mira Solen</strong></br>CEO of Aurora Digital Labs</p>
+                            </footer>
+                        </article>
+                    </div>
                 </div>
-                <!-- End of Work Experince -->
-
-                <!-- Education -->
-                <div class="education">
-                    <h2>Education</h2>
-
-                    <article>
-                        <ul class="spaced-list">
-                            <li><strong>Bachelor of Software Engineering — Aurelia Institute of Technology (2019-2023)</strong>
-                            <span class="li-detail">Graduated with High Honors (GPA 3.92/4.00). Focused on front-end web development, design systems, and semantic HTML. Developed a final thesis project titled “Modern Web Interfaces for Education Portals.”</span>
-                            </li>
-                            <li><strong>Certificate in Web Design & Usability — Lunaris Digital Academy (2022)</strong>
-                            <span class="li-detail">Completed an intensive program emphasizing clean code structure, accessibility, and responsive design using pure HTML and CSS.</span>
-                            </li>
-                        </ul>
-                    </article>
-
-                    <article>
-                        <h3>Relevant Courses</h3>
-                        <ul>
-                            <li>Interactive Web Interfaces</li>
-                            <li>Human-Computer Interaction</li>
-                            <li>Data Structures and Web Algorithms</li>
-                            <li>Creative Coding for Designers</li>
-                            <li>Applied Web Accessibility</li>
-                            <li>Software Architecture Basics</li>
-                        </ul>
-                    </article>
-
-                    <article>
-                        <h3>Certifications</h3>
-                        <ul>
-                            <li><strong>Semantic HTML Mastery</strong> — Codeverse Labs</li>
-                            <li><strong>Responsive Design Fundamentals</strong> — Nova Learning Hub</li>
-                            <li><strong>Building Scalable Web Layouts</strong> — Altura Online School</li>
-                        </ul>
-                    </article>
-                </div>
-                <!-- End of Education-->
+                <!-- End of Reviews -->
             </section>
-        </div>    
+            <!-- End of Articles -->
 
-            <!-- Reviews -->
-            <div class="reviews-section">
-                <h2>Review from My Client</h2>
-                <div class="reviews">
-                    <article class="reviews1">
-                        <blockquote>
-                            <p>“Chandra delivered our company website ahead of schedule and exceeded expectations.”</p>
-                        </blockquote><br>
-                        <footer>
-                            <p><strong>Emily Varon</strong><br>Founder at BrightPath Consulting</p>
-                        </footer>
-                    </article>
-
-                    <article class="reviews2">
-                        <blockquote>
-                            <p>“I was impressed by the clarity of his HTML structure. It made our later design process seamless. Definitely someone who understands semantic markup well.”</p>
-                        </blockquote><br>
-                        <footer>
-                            <p><strong>Lucas Trent</strong><br>Project Manager at Skywave Media</p>
-                        </footer>
-                    </article>
-
-                    <article class="reviews3">
-                        <blockquote>
-                            <p>“Working with Chandra was effortless. He communicates clearly, understands project requirements quickly, and produces well-organized code.”</p>
-                        </blockquote><br>
-                        <footer>
-                            <p><strong>Mira Solen</strong></br>CEO of Aurora Digital Labs</p>
-                        </footer>
-                    </article>
+            <!-- Contact -->
+            <section id="contact">
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    <p>Let's start a conversation!</p>
+                    <p>If you have a project in mind or just want to say hello, feel free to reach out.</p>
+                    <a href="mailto:someone@example.com" class="email-link">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>chndrgmlng.work@gmail.com</span>
+                    </a>
+                    <div class="social-link">    
+                        <ul>
+                            <li>
+                                <a href="https://linkedin.com/in/chandragumilang/" target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-solid fa-link"></i> <span>LinkedIn</span>
+                                </a></li>
+                            <li><a href="https://github.com/0xCGdev" target="_blank" rel="noopener noreferrer"><span>GitHub</span></a></li>
+                            <li><a href="https://x.com/0xCGdev" target="_blank" rel="noopener noreferrer"><span>X (Twitter)</span></a></li>
+                            <li><a href="https://instagram.com/_cg.dev/" target="_blank" rel="noopener noreferrer"><span>Instagram</span></a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <!-- End of Reviews -->
-        </section>
-        <!-- End of Articles -->
 
-        <!-- Contact -->
-        <section id="contact">
-            <div class="contact-info">
-                <h2>Get in Touch</h2>
-                <p>Let's start a conversation!</p>
-                <p>If you have a project in mind or just want to say hello, feel free to reach out.</p>
-                <a href="mailto:example@email.com" class="email-link">example@email.com</a>
-                <div class="social-link">    
-                    <ul>
-                        <li><a href="https://linkedin.com/in/chandragumilang/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                        <li><a href="https://github.com/0xCGdev" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-                        <li><a href="https://x.com/0xCGdev" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
-                        <li><a href="https://instagram.com/_cg.dev/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                    </ul>
-                </div>
-            </div>
+                <form action="/submit">
+                        <fieldset>
+                            <label for="name">Name:</label>
+                            <input type="text" name="name" id="name" placeholder="John Doe" pattern="^[A-Za-z\s]+$" required>
+                            <small class="note-error">* Only letters are allowed</small>
 
-            <form action="/submit">
-                    <fieldset>
-                        <label for="name">Name:</label>
-                        <input type="text" name="name" id="name" placeholder="John Doe" pattern="^[A-Za-z\s]+$" required>
-                        <small class="note-error">* Only letters are allowed</small>
+                            <label for="email">Email:</label> 
+                            <input type="email" name="email" id="email" placeholder="johndoe@example.com" required>
+                            <small class="note-error">* Must be a valid email format</small>
 
-                        <label for="email">Email:</label> 
-                        <input type="email" name="email" id="email" placeholder="johndoe@example.com" required>
-                        <small class="note-error">* Must be a valid email format</small>
+                            <label for="subject">Subject:</label>
+                            <input type="text" name="subject" id="subject" placeholder="Enter your subject..." minlength="5" required>
+                            <small class="note-error">* At least 5 characters required</small>
 
-                        <label for="subject">Subject:</label>
-                        <input type="text" name="subject" id="subject" placeholder="Enter your subject..." minlength="5" required>
-                        <small class="note-error">* At least 5 characters required</small>
+                            <textarea name="message" id="message" cols="29" rows="5" placeholder="Your message..." minlength="5" required></textarea>
+                            <small class="note-error">* At least 5 characters required</small>
 
-                        <textarea name="message" id="message" cols="29" rows="5" placeholder="Your message..." minlength="5" required></textarea>
-                        <small class="note-error">* At least 5 characters required</small>
-                        
-                        <button type="submit">Send message</button>
-                    </fieldset>
-                </form>
+                            <button type="submit">Send message</button>
+                        </fieldset>
+                    </form>
 
-                
-        </section>
-    </main>
-    <!-- End of Main-->
 
-    <!-- Footer -->
-    <footer id="footer">
-        <hr>
-        <p>© 2025 Chandra Gumilang. All rights reserved.</p>
-    </footer>
-    <!-- End of Footer-->
+            </section>
+        </main>
+        <!-- End of Main-->
+
+        <!-- Footer -->
+        <footer id="footer">
+            <hr>
+            <p>© 2025 Chandra Gumilang. All rights reserved.</p>
+        </footer>
+        <!-- End of Footer-->
+    </div>
 </body>
 </html>

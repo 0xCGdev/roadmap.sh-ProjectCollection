@@ -4,21 +4,51 @@
     box-sizing: border-box;
     text-decoration: none;
     scroll-behavior: smooth;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 :root {
-    --color-bg: #F7F7F7;
-    --color-surface: #FFFFFF;
-    --text-primary: #111111;
-    --text-secondary: #8A8A8A;
-    --color-primary: #000000;
-    --color-secondary: #222222;
-    --border-color: #E6E6E6;
+    --clr-primary: #000000;
+    --clr-secondary: #222222;
+    --clr-accent: #8A8A8A;
+    --clr-bg-page: #f5f5f5;
+    --clr-sidebar: #ffffff;
+    --clr-header-footer: #222222;
+    --clr-switch: #222222;
+    --clr-card: #ffffff;
+    --clr-border: #cccccc;
+    --clr-project-label: #222222;
+    --clr-text-project-label: #ffffff;
+    --clr-tab-content: #ffffff;
+    --clr-text-primary: #000000;
+    --clr-text-secondary: #333333;
+    --clr-text-inverted: #ffffff;
 }
 
-body {
-    background: var(--color-bg);
+#theme-switch:checked ~ .wrapper {
+    --clr-primary: #ffffff;
+    --clr-secondary: #f5f5f5;
+    --clr-accent: #444444;
+    --clr-bg-page: #000000;
+    --clr-sidebar: #121212;
+    --clr-header-footer: #121212;
+    --clr-switch: #f2f2f2;
+    --clr-card: #121212;
+    --clr-border: #000000;
+    --clr-project-label: #202020;
+    --clr-tab-content: #8a8a8a;
+    --clr-text-primary: #ffffff;
+    --clr-text-secondary: #f5f5f5;
+    --clr-text-inverted: #000000;
+}
+
+html, body {
+    height: 100%;
+    background: var(--clr-bg-page);
+}
+
+.wrapper {
+    background: var(--clr-bg-page);
 }
 
 header {
@@ -28,7 +58,7 @@ header {
     width: 100%;
     position: fixed;
     top: 0;
-    background-color: var(--color-secondary);
+    background-color: var(--clr-header-footer);
     color: var(--color-surface);
     z-index: 1000;
     padding: 3px 10px 6px 10px;
@@ -37,7 +67,7 @@ header {
 .logo {
     flex: 2;
     text-align: center;
-    color: var(--color-surface);
+    color: #ffffff;
     font-size: clamp(7px, 2.3vw, 14px);
     letter-spacing: 1px;
     white-space: nowrap;
@@ -45,7 +75,7 @@ header {
 
 .logo a {
     display: inline-block;
-    color: var(--color-surface);
+    color: #ffffff;
     font-weight: bold;
 }
 
@@ -64,29 +94,33 @@ header {
 .hamburger {
     display: block;
     flex: 1;
-    font-size: clamp(24px, 7vw, 44px);
+    font-size: clamp(24px, 7.5vw, 44px);
     cursor: pointer;
+    color: #ffffff;
 }
 
 .close-btn {
+    display: block;
+    width: 100%;
     font-size: clamp(2rem, 10vw, 4.5rem);
     cursor: pointer;
-    position: absolute;
-    top: 0;
-    right: 4vw;
-    color: var(--color-primary);
+    color: var(--clr-text-primary);
+    text-align: right;
+    padding-right: 1rem;
 }
 
 nav {
     display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
-    width: 40vw;
-    background-color: var(--color-surface);
+    width: 50%;
+    background-color: var(--clr-sidebar);
     z-index: 2000;
-    padding-top: 1rem;
 }
 
 nav ul {
@@ -95,22 +129,123 @@ nav ul {
     justify-content: center;
     text-align: center;
     list-style-type: none;
-    min-height: 100vh;
-    width: 50vw;
-    gap: 8vw;
+    width: max-content;
+    height: max-content;
+    gap: 10vw;
 }
 
 nav a {
     display: inline-block;
-    color: var(--color-secondary);
+    color: var(--clr-text-primary);
     font-size: clamp(16px, 5vw, 32px);
     font-weight: 600;
     transition: 0.3s ease;
 }
 
 nav a:hover {
-    color: var(--color-primary);
     transform: scale(1.1);
+}
+
+.theme-toggle {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: 0.5s;
+    width: 90%;
+    margin-bottom: 2.5vw;
+    padding: 0.6rem 0;
+    border-radius: 15px;
+    background-color: var(--clr-switch);
+}
+
+.toggle-text {
+    font-size: clamp(12px, 3vw, 28px);
+    color: var(--clr-text-inverted);
+}
+
+.toggle-label {
+    --toggle-width: clamp(50px, 10vw, 100px);
+    --toggle-height: calc(var(--toggle-width) * 0.5);
+    --circle-size: calc(var(--toggle-height) * 0.8);
+
+    width: var(--toggle-width);
+    height: var(--toggle-height);
+    border-radius: 999px;
+    position: relative;
+    cursor: pointer;
+    background: #ebebeb;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1) inset;
+    transition: 0.5s;
+}
+
+.circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--circle-size);
+    height: var(--circle-size);
+    border-radius: 99px;
+    background-color: white;
+    box-shadow: 
+        5px 5px 10px rgba(0, 0, 0, 0.05),
+        -5px -5px 15px rgba(0, 0, 0, 0.05) inset;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    overflow: hidden;
+    transform: translate(10%, -50%);
+    transition: 0.5s;
+}
+
+.toggle-label svg {
+    position: absolute;
+    width: calc(var(--circle-size) * 0.7);
+}
+
+.sun {
+    opacity: 1;
+    margin-top: 0;
+    color: black;
+    transition: 0.5s;
+}
+
+.moon {
+    opacity: 0;
+    margin-top: -150%;
+    color: white;
+    transition: 0.5s;
+}
+
+#theme-switch:checked ~ .wrapper header .theme-toggle {
+    background-color: var(--clr-switch);
+}
+
+#theme-switch:checked ~ .wrapper header .toggle-label {
+    background: #111111;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5) inset;
+}
+
+
+#theme-switch:checked ~ .wrapper header .toggle-label .circle {
+    left: 100%;
+    transform: translate(-110%, -50%);
+    background-color: #444444;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5),
+    -10px -10px 30px rgba(0, 0, 0, 0.5) inset;
+}
+
+#theme-switch:checked ~ .wrapper header .toggle-label .circle .sun {
+    margin-top: 150%;
+    opacity: 0;
+    transition: 0.5s;
+}
+#theme-switch:checked ~ .wrapper header .toggle-label .circle .moon {
+    margin-top: 0%;
+    opacity: 1;
+    transition: 0.5s;
+}
+.toggle-label:active .circle {
+    width: 40px;
 }
 
 #menu-toggle:checked ~ nav {
@@ -120,7 +255,8 @@ nav a:hover {
 #home {
     display: flex;
     flex-direction: column;
-    margin-bottom: 10vw;
+    justify-content: center;
+    height: 100vh;
 }
 
 .hero {
@@ -131,7 +267,7 @@ nav a:hover {
 .profile-picture {
     width: 60vw;
     border-radius: 50%;
-    margin: 12vh auto 5vh auto;
+    margin: 0 auto 5vh auto;
     transition: 0.3s ease;
 }
 
@@ -141,30 +277,72 @@ nav a:hover {
 }
 
 .name {
-    font-size: clamp(20px, 6.2vw, 55px);
+    font-size: clamp(20px, 6.7vw, 32px);
     line-height: 1.1;
-    color: var(--color-secondary);
+    color: var(--clr-text-primary);
     width: 95%;
     margin: auto;
 }
 
-.name-hero,
-.role-hero {
-    color: var(--color-primary);
-}
-
 .role {
-    font-size: clamp(23px, 7.2vw, 64px);
-    color: var(--color-secondary);
+    font-size: clamp(20px, 7.8vw, 37px);
+    color: var(--clr-text-primary);
     width: 95%;
     margin: 0 auto;
 }
 
 .desc {
-    font-size: clamp(14px, 4.2vw, 28px);
-    color: var(--text-primary);
+    font-size: clamp(12px, 4vw, 24px);
+    color: var(--clr-text-secondary);
     width: 95%;
     margin: 0.5rem auto 1.8rem auto;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    gap: 1rem
+}
+
+.social-icons a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    background-color: transparent;
+    border: 0.1rem solid var(--clr-primary);
+    font-size: 1rem;
+    border-radius: 50%;
+    transition: 0.3s ease;
+    color: var(--clr-primary);
+}
+
+.social-icons a:hover{
+    color: var(--clr-text-inverted);
+    transform: scale(1.1) translateY(-5px);
+    background-color: var(--clr-secondary);
+}
+
+.download-cv-btn {
+    display: block;
+    width: max-content;
+    margin: 0 auto 0 auto;
+    padding: 0.8rem 1.8rem;
+    border-radius: 15px;
+    background-color: var(--clr-secondary);
+    color: var(--clr-text-inverted);
+    font-size: clamp(12px, 4vw, 28px);
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.download-cv-btn:hover {
+    background-color: var(--clr-primary);
+    transform: scale(1.05);
 }
 
 #projects {
@@ -173,7 +351,7 @@ nav a:hover {
     margin-bottom: 3rem;
     padding: 10px 5px 20px 5px;
     scroll-margin: 15vw;
-    background-color: var(--color-surface);
+    background-color: var(--clr-card);
     box-shadow: 0 0 15px rgba(0,0,0, 0.2);
     border-radius: 15px;
 }
@@ -182,10 +360,10 @@ nav a:hover {
 #articles h2,
 .contact-info h2,
 .reviews-section h2 {
-    padding: 10px;
+    padding: 1rem;
     text-align: center;
-    color: var(--color-primary);
-    font-size: clamp(22px, 6.2vw, 34px);
+    color: var(--clr-text-primary);
+    font-size: clamp(22px, 5.5vw, 34px);
 }
 
 .projects-tabs {
@@ -201,25 +379,26 @@ nav a:hover {
 
 .projects-tabs label {
     padding: 10px;
-    background: var(--text-secondary);
+    background: var(--clr-accent);
     cursor: pointer;
-    border: 1px solid #ccc;
-    color: white;
-    font-size: clamp(14px, 4.2vw, 28px);
+    border: 1px solid var(--clr-border);
+    color: var(--clr-primary);
+    font-size: clamp(14px, 4vw, 28px);
     transition: background-color .3s ease;
     text-align: center;
 }
 
 .projects-tabs label:hover {
-    background-color: var(--color-secondary);
+    background-color: var(--clr-secondary);
+    color: var(--clr-text-inverted);
 }
 
 .tab-content {
     display: none;
-    border: 1px solid #ccc;
+    border: 1px solid var(--clr-border);
     padding: 10px;
-    background-color: var(--color-surface);
-    font-size: clamp(14px, 4.2vw, 28px);
+    background-color: var(--clr-tab-content);
+    font-size: clamp(14px, 3.6vw, 28px);
 }
 
 .content-btn {
@@ -230,16 +409,16 @@ nav a:hover {
 }
 
 .content-btn a {
-    font-size: clamp(14px, 3.7vw, 28px);
-    color: var(--color-surface);
-    background: var(--color-primary);
+    font-size: clamp(12px, 3.6vw, 28px);
+    color: var(--clr-text-inverted);
+    background: var(--clr-secondary);
     padding: 5px 15px;
-    border-radius: 10px;
-    transition: .3s ease;
+    border-radius: 15px;
+    transition: 0.3s ease;
 }
 
 .content-btn a:hover {
-    background: var(--color-secondary);
+    background: var(--clr-primary);
     transform: scale(1.05);
 }
 
@@ -248,7 +427,8 @@ nav a:hover {
 #tab3:checked + label,
 #tab4:checked + label,
 #tab5:checked + label {
-    background: var(--color-secondary);
+    background: var(--clr-project-label);
+    color: var(--clr-text-project-label);
 }
 
 #tab1:checked ~ #content1,
@@ -264,8 +444,8 @@ nav a:hover {
 }
 
 article {
-    margin-bottom: 20px;
-    font-size: clamp(14px, 4.2vw, 28px);
+    font-size: clamp(14px, 3.6vw, 28px);
+    color: var(--clr-text-primary);
 }
 
 article ul {
@@ -278,7 +458,7 @@ article ul {
     margin: 2rem auto 20px auto;
     border-radius: 15px;
     padding: 10px 0;
-    background: var(--color-surface);
+    background: var(--clr-card);
     text-align: center;
     box-shadow: 0 0 15px rgba(0,0,0, 0.2);
 }
@@ -287,24 +467,30 @@ article ul {
 .work-experience p,
 .education h3,
 .education ul {
-    width: 85%;
     margin: 5px auto;
     text-align: left;
+}
+
+.work-experience article,
+.education article {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
 }
 
 .work-experience a {
     display: inline-block;
     margin: 10px auto 1rem auto;
-    background: var(--color-secondary);
-    color: var(--color-surface);
+    background: var(--clr-secondary);
+    color: var(--clr-text-inverted);
     padding: 5px 15px;
-    border-radius: 10px;
-    font-size: clamp(14px, 3.5vw, 28px);
+    border-radius: 15px;
+    font-size: clamp(12px, 3.6vw, 28px);
     transition: .3s ease;
 }
 
 .work-experience a:hover {
-    background: var(--color-primary);
+    background: var(--clr-primary);
     transform: scale(1.05);
 }
 
@@ -319,7 +505,8 @@ article ul {
 
 .reviews-section {
     width: 85%;
-    margin: auto;
+    margin:  0 auto;
+    margin-bottom: 2rem;
 }
 
 .reviews-section h2 {
@@ -330,10 +517,11 @@ article ul {
 .reviews1,
 .reviews2,
 .reviews3 {
-    background: var(--color-surface);
+    background: var(--clr-card);
     border-radius: 15px;
     padding: 25px;
     box-shadow: 0 0 15px rgba(0,0,0, 0.2);
+    margin-bottom: 1rem;
 }
 
 #contact {
@@ -354,46 +542,44 @@ form { order: 3; }
 .contact-info p {
     width: 80%;
     margin: 1vh auto 0 auto;
-    
+    color:var(--clr-text-primary);
 }
 
 .contact-info p:first-of-type {
-    font-size: clamp(16px, 4.8vw, 24px);
+    font-size: clamp(16px, 4vw, 24px);
     margin-bottom: 1vh;
 }
 
 .contact-info p:last-of-type {
-    font-size: clamp(14px, 4.2vw, 22px);
+    font-size: clamp(14px, 4vw, 22px);
     margin-bottom: 2vh;
 }
 
 .email-link {
-        color: var(--color-primary);
-        width: 80%;
-        margin: 0 auto;
-        margin-bottom: 4vh;
-        font-size: clamp(16px, 4.8vw, 32px);
-        transition: 0.3s ease;
-        color: var(--color-secondary);
-    }
+    display: inline-flex;
+    align-items: center;
+    color: var(--clr-text-secondary);
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 4vh;
+    font-size: clamp(14px, 4vw, 22px);
+    gap: 1rem;
+}
 
-    .email-link::before {
-        content: "🖂";
-        margin-right: 3vw;
-        position: relative;
-        top: 1.5px;
-    }
+.email-link span,
+.social-link a span {
+    transition: 0.3s ease;
+}
 
-    .email-link:hover {
-        transform: scale(1.02);
-        color: var(--color-primary);
-    }
+.email-link:hover span {
+    transform: scale(1.02);
+}
 
 fieldset {
     width: 85%;
     margin: auto;
-    padding: 25px;
-    background: var(--color-surface);
+    padding: 2rem;
+    background: var(--clr-card);
     border-radius: 15px;
     box-shadow: 0 0 15px rgba(0,0,0, 0.2);
     border: none;
@@ -401,20 +587,21 @@ fieldset {
 
 fieldset label {
     font-weight: 500;
-    font-size: clamp(16px, 4.5vw, 28px);
+    font-size: clamp(16px, 4vw, 28px);
+    color: var(--clr-text-primary);
 }
 
 fieldset input,
 fieldset textarea,
 fieldset button {
-    font-size: clamp(14px, 4vw, 28px);
+    font-size: clamp(14px, 3/8vw, 26px);
 }
 
 fieldset input,
 fieldset textarea {
     width: 100%;
     padding: 5px 10px;
-    border: 1px solid var(--text-secondary);
+    border: 1px solid gray;
     border-radius: 4px;
     margin-top: 5px;
     margin-bottom: 1rem;
@@ -431,7 +618,7 @@ fieldset textarea:not(:placeholder-shown):invalid + .note-error {
     font-size: clamp(12px, 3.2vw, 16px);
     color: crimson;
     position: relative;
-    bottom: 14px;
+    bottom: 10px;
 }
 
 fieldset input:focus,
@@ -444,16 +631,17 @@ textarea:focus {
 fieldset button {
     display: block;
     margin: 0 auto;
-    background: var(--color-secondary);
+    background: var(--clr-secondary);
     padding: 5px 10px;
-    border-radius: 10px;
-    color: var(--color-surface);
-    transition: .3s ease;
+    border-radius: 15px;
+    font-size: clamp(12px, 3.6vw, 28px);
+    color: var(--clr-text-inverted);
+    transition: 0.3s ease;
 }
 
 fieldset button:hover {
-    background: var(--color-primary);
-    transform: scale(1.05);
+    background: var(--clr-primary);
+    transform: scale(1.02);
 }
 
 fieldset input:not(:placeholder-shown):invalid,
@@ -469,34 +657,40 @@ fieldset textarea:not(:placeholder-shown):valid {
 .social-link ul{
     display: flex;
     justify-content: center;
-    gap: 3vw;
-    margin: 2rem;
-    margin-bottom: 1rem;
+    align-items: center;
+    width: max-content;
+    gap: 4vw;
+    margin: 2rem auto;
     list-style: none;
 }
 
 .social-link a {
-    display: inline-block;
-    font-size: clamp(14px, 4vw, 24px);
-    color: var(--color-secondary);
+    display: inline-flex;
+    align-items: center;
+    font-size: clamp(14px, 3.8vw, 24px);
+    color: var(--clr-text-secondary);
     transition: 0.3s ease;
 }
 
-.social-link a:hover {
-    color: var(--color-primary);
+.social-link a:hover span {
+    color: var(--clr-text-primary);
     transform: scale(1.1);
+}
+
+.social-link i {
+    display: none;
 }
 
 #footer {
     display: flex;
     justify-content: center;
     padding: 0.8rem;
-    background: var(--color-secondary);
+    background: var(--clr-header-footer);
 }
 
 #footer p {
     text-align: center;
-    color: var(--color-surface);
+    color: #ffffff;
     font-size: clamp(12px, 3.5vw, 24px);
 }
 
@@ -506,60 +700,67 @@ footer hr {
 
 @media (min-width: 600px)  {
 
-    #home {
-        margin: 4rem 0 5rem 0;
+    .hero {
+        width: 70%;
     }
 
-    .profile-picture {
-        width: 45vw;
-    }
+    .hamburger { font-size: 4.5vw; }
 
-    .name { font-size: 6.2vw; }
-    .role { font-size: 7.2vw; }
-    .desc { font-size: 3.1vw; }
+    .logo { font-size: 1.5vw; }
 
     nav a { font-size: 4vw; }
 
-    #projects {
-        padding-bottom: 2rem;
+    .toggle-text { font-size: 2.8vw;}
+
+    .profile-picture { width: 45vw; }
+
+    .name { font-size: 5.5vw; }
+    .role { font-size: 6.4vw; }
+    .desc { font-size: 2.6vw; }
+
+    .social-icons {
+        margin: 4rem 0 2rem 0;
     }
 
-    #projects,
-    #articles {
-        margin-bottom: 4rem;
+    .social-icons a {
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.5rem;
     }
 
-    .reviews-section {
-        margin-top: 4rem;
+    .download-cv-btn {
+        font-size: 2.8vw;
+        margin-top: 0rem;
+    }
+
+    .reviews-section { margin-top: 4rem; }
+
+    #projects h2,
+    #articles h2 {
+        margin: 1rem 0;
     }
 
     #projects h2,
     #articles h2,
     .reviews-section h2,
     .contact-info h2 { 
-        font-size: 5vw; 
-        margin-bottom: 1rem;
+        font-size: 4.2vw; 
     }
 
     .projects-tabs label,
     .tab-content,
     .content-btn a,
     .work-experience a { 
-        font-size: 2.8vw; 
+        font-size: 2.6vw; 
     }
     
-    .tab-content {
-        padding-left: 1.2rem;
-    }
+    .tab-content { padding-left: 1.2rem; }
 
-    article { font-size: 2.8vw; }
+    article { font-size: 2.6vw; }
     
-    .work-experience a {
-        margin: 10px 0;
-    }
+    .work-experience a { margin: 10px 0; }
 
-    #contact {
-        scroll-margin: 6vw;
+    #contact { scroll-margin: 4vw;
     }
 
     .contact-info h2 { margin-top: 3rem;}
@@ -568,26 +769,43 @@ footer hr {
         font-size: 3vw;
     }
 
-    .contact-info p:last-of-type { font-size: 2.8vw; }
+    .contact-info p:last-of-type { font-size: 2.6vw; }
 
     fieldset { padding: 3rem; }
 
-    fieldset label,
+    fieldset label { 
+        font-size: 2.8vw;
+    }
+
     fieldset input,
-    fieldset textarea,
-    fieldset button { font-size: 2.8vw; }
+    fieldset textarea { 
+        font-size: 2.4vw;
+        margin-top: 0.4rem;
+        padding-left: 1rem; 
+    }
+
+    fieldset button {
+        font-size: 2.6vw;
+        margin-top: 1.2rem;
+        padding: 0.4rem 0.8rem;
+    }
 
     fieldset input:not(:placeholder-shown):invalid + .note-error,
     fieldset textarea:not(:placeholder-shown):invalid + .note-error {
         font-size: 2vw;
     }
 
-    .email-link { font-size: 3vw;}
+    .email-link { font-size: 2.8vw;}
 
-    .social-link { gap: 8vw; }
+    .social-link { 
+        gap: 10vw; 
+        margin: auto;
+    }
 
-    .social-link a { font-size: 3vw; }
-    #footer p { font-size: 2.5vw; }
+    .social-link a { font-size: 2.8vw; }
+
+    #footer { padding: 1rem 0;}
+    #footer p { font-size: 2.4vw; }
 
     .content-btn {
         margin: 20px 0 10px 0;
@@ -599,20 +817,20 @@ footer hr {
         width: 95%;
     }
         
-    }
+}
 
 @media (min-width: 1200px) {
 
     header {
         margin: 0;
-        padding: 0.8rem 0 1rem 0;
+        padding: 0.5rem 0;
     }
 
     .logo {
         margin: 0;
         padding: 0;
         text-align: left;
-        font-size: 0.7vw;
+        font-size: 0.6vw;
         margin-left: 2rem;
     }
 
@@ -626,10 +844,13 @@ footer hr {
 
     nav {
         display: flex !important;
+        flex-direction: row;
+        align-items: center;
         position: static;
         width: auto;
         height: auto;
         padding: 0;
+        gap: 5rem;
         background: transparent;
         align-items: center;
         margin-right: 2rem;
@@ -640,23 +861,50 @@ footer hr {
         flex-direction: row;
         width: auto;
         min-height: auto;
-        gap: 4rem;
+        gap: 3rem;
         margin: 0;
         padding: 0;
         text-align: right;
     }
 
     nav a {
-        color: var(--color-surface);
+        color: #ffffff;
     }
-
-    nav a:hover {
-        color: var(--color-bg);
-    }
-
+    
     .close-btn {
         display: none;
     }
+
+    .toggle-text {
+        display: none;
+    }
+
+    .theme-toggle {
+        margin: 0;
+        margin-left: 2rem;
+    }
+
+    .toggle-label {
+        --toggle-width: 65px;
+        --toggle-height: 32px;
+        --circle-size: 26px;
+
+        width: var(--toggle-width);
+        height: var(--toggle-height);
+    }
+
+    .circle {
+        width: var(--circle-size);
+        height: var(--circle-size);
+    }
+
+    .toggle-label svg {
+        width: calc(var(--circle-size) * 0.7);
+    }
+
+    #theme-switch:checked ~ .wrapper header .theme-toggle {
+    background-color: transparent;
+}
 
     #home {
         display: flex;
@@ -664,9 +912,8 @@ footer hr {
         justify-content: center;
         align-items: center;
         height: 100vh;
-        gap: 12vw;
-        margin-top: 2rem;
-        margin-bottom: 0;
+        gap: 14vw;
+        margin: 0;
     }
 
     .profile-picture {
@@ -675,26 +922,40 @@ footer hr {
     }
 
     .hero {
-        width: 40%;
+        width: 636px;
         margin: 0;
     }
 
     .name { 
-        font-size: 2.8vw; 
+        font-size: 2.7vw; 
         margin: 0;
+        width: max-content;
     }
 
     .role { 
         font-size: 3.2vw; 
         margin: 0;
+        width: max-content;
     }
 
     .desc {
-        font-size: 1.4vw; 
+        font-size: 1.3vw; 
         padding-top: 0.8rem;
         margin: 0;
-        width: 85%;
+        width: 95%;
     }
+
+    .social-icons {
+        justify-content: start;
+        margin-top: 2rem;
+    }
+
+    .download-cv-btn {
+    display: flex;
+    margin: 0;
+    margin-top: 2rem;
+    font-size: 1.2vw;
+}
 
     nav a { font-size: 1.2vw; }
 
@@ -707,36 +968,44 @@ footer hr {
     #articles h2,
     .reviews-section h2,  
     .contact-info h2 {
-        font-size: 1.6vw; 
+        font-size: 1.5vw; 
     }
 
     .projects-tabs label,
     .tab-content { 
-        font-size: 1vw; 
+        font-size: 0.9vw; 
     }
     
-    .content-btn a { font-size: 1vw; }
+    .content-btn a { font-size: 0.9vw; }
 
-    article { font-size: 1vw; }
-    .work-experience a { font-size: 1vw; }
+    article { font-size: 0.9vw; }
+    
+    .work-experience a {
+        font-size: 0.9vw; 
+        margin-bottom: 1vw;
+    }
 
     .education {
-        padding-bottom: 1vw;
+        padding-bottom: 2vw;
     }
 
     fieldset label {
-        font-size: 1.2vw;
+        font-size: 1vw;
     }
 
     fieldset input,
     fieldset textarea,
     fieldset button { 
-        font-size: 1vw; 
+        font-size: 0.8vw; 
+    }
+
+    fieldset button {
+        margin-bottom: 1rem;
     }
 
     .social-link a,
     #footer p { 
-        font-size: 1vw; 
+        font-size: 0.9vw; 
     }
 
     .desktop-section {
@@ -776,7 +1045,7 @@ footer hr {
     }
 
     .reviews-section h2 {
-        font-size: 1.8vw;
+        font-size: 1.7vw;
         margin-bottom: 2rem;
     }
 
@@ -795,7 +1064,6 @@ footer hr {
     #contact {
         display: flex;
         flex-direction: row;
-        justify-content: center;
         width: 85%;
         margin: 3.5rem auto 5rem auto;
     }
@@ -818,7 +1086,7 @@ footer hr {
 }
 
     #contact h2{
-        font-size: 2vw;
+        font-size: 1.9vw;
         text-align: start;
         margin: 0;
         margin-bottom: 2rem;
@@ -828,22 +1096,21 @@ footer hr {
     .contact-info p:first-of-type {
         font-weight: 500;
         margin-bottom: 1rem;
-        font-size: 1.2vw;
-    }
-
-    .contact-info p:last-of-type {
-        font-size: 1vw;
-    }
-
-    .email-link {
-        margin: 10vw 0 1vw 0;
-        color: var(--color-primary);
         font-size: 1.1vw;
     }
 
-    .email-link::before {
-        content: "🖂";
-        margin-right: 1.2vw;
+    .contact-info p:last-of-type {
+        font-size: 0.9vw;
+        margin-bottom: 10rem;
+    }
+
+    .email-link {
+        margin: 0;
+        font-size: 1vw;
+    }
+
+    .social-link {
+        margin: 1rem;
     }
 
     .social-link ul{
@@ -853,15 +1120,16 @@ footer hr {
         gap: 1vw;
     }
 
-    .social-link ul::before {
-        content: "🔗";
-        position: relative;
-        right: 3px;
-        font-size: 1.1vw;
+    .social-link a {
+        display: inline-flex;
+        align-items: center;
+        gap: 1rem;
     }
 
-    .social-link a:hover {
-        transform: scale(1.05);
+    .social-link a i {
+        display: block;
+        pointer-events: none;
+        transform: none !important;
     }
 
     form {
@@ -876,7 +1144,6 @@ footer hr {
 
     fieldset input:not(:placeholder-shown):invalid + .note-error,
     fieldset textarea:not(:placeholder-shown):invalid + .note-error {
-        font-size: 0.8vw;
+        font-size: 0.6vw;
     }
-
 }
